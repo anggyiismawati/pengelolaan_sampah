@@ -1,16 +1,17 @@
 import mysql.connector
 from mysql.connector import Error
+import streamlit as st
 
 def get_connection():
-    """Membuat koneksi ke database MySQL."""
+    """Membuat koneksi ke database MySQL menggunakan Streamlit Secrets."""
     try:
         conn = mysql.connector.connect(
-            host='https://mobilecomputing.my.id:2083/',        # Ganti dengan host MySQL Anda
-            database='mobw7774_kelola_sampah',  # Ganti dengan nama database Anda
-            user='mobw7774',             # Ganti dengan username MySQL Anda
-            password=''   # Ganti dengan password MySQL Anda
+            host=st.secrets["DB_HOST"],          # Host database
+            database=st.secrets["DB_DATABASE"],  # Nama database
+            user=st.secrets["DB_USER"],          # Username database
+            password=st.secrets["DB_PASSWORD"]   # Password database
         )
         return conn
     except Error as e:
-        print(f"Error saat menyambungkan ke database: {e}")
+        st.error(f"Error saat menyambungkan ke database: {e}")
         return None
