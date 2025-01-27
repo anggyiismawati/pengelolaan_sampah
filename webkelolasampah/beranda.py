@@ -102,7 +102,7 @@ def beranda():
             cursor = conn.cursor()
             
             # Ambil data komposisi sampah dari tabel datasetbersih
-            query = "SELECT sisa_makanan, plastik, kain, karet_kulit, logam, kertas_karton, kayu_ranting, kaca, lainnya FROM datasetbersih LIMIT 1"
+            query = "SELECT sisa_makanan, plastik, kain, karet_kulit, logam, kertas_karton, kayu_ranting, kaca, lainnya FROM datasetbersih LIMIT 10"
             cursor.execute(query)
             data = cursor.fetchone()
 
