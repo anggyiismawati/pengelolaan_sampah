@@ -6,10 +6,10 @@ def get_connection():
     """Membuat koneksi ke database MySQL menggunakan Streamlit Secrets."""
     try:
         conn = mysql.connector.connect(
-            host=st.secrets["DB_HOST"],          # Host database
-            database=st.secrets["DB_DATABASE"],  # Nama database
-            user=st.secrets["DB_USER"],          # Username database
-            password=st.secrets["DB_PASSWORD"]   # Password database
+            host='mobilecomputing.my.id',          # Host database
+            database='mobw7774_kelola_sampah',  # Nama database
+            user='mobw7774_anggy',          # Username database
+            password='Skripsi2025!'   # Password database
         )
         return conn
     except Error as e:
